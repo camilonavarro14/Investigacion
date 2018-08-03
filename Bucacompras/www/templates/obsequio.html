@@ -1,0 +1,20 @@
+  <ion-header-bar class="hederbackgrod">
+  </ion-header-bar>
+  <ion-content class="bg-1"> 
+      
+    <h4 class="titulo-pantalla" style="margin-top:10px; margin-bottom:20px;">Lista de Obsequio por entregar.</h4>
+  
+   	<div ng-repeat="pedido in listapedidos | orderBy: '-pedidoid'"  ng-click="detalle(pedido.id)">
+
+		 <div class="list card" style="margin-bottom: 0px;"  >
+
+		  <div class="item item-avatar">
+		    <img src="{{url}}{{pedido.foto}}">
+        <h2>{{pedido.producto | limitTo:40 | uppercase }}</h2>
+		    <p>Pedido numero: {{pedido.pedido_id| limitTo:20 | uppercase }}</p>
+		  </div>
+
+    		</div>
+    </div>
+
+  </ion-content>

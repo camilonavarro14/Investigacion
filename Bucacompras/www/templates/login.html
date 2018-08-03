@@ -1,0 +1,63 @@
+<ion-view  hide-nav-bar="false">
+
+  <ion-content class="bg-2" style="padding-top: 45%;">
+
+  <div class="tabs" style="top: 20px !important; position: relative !important;">
+    <a class="tab-item" ng-click="tapfuncionpor()"> 
+    GALERIA
+    </a>
+    <a class="tab-item"  ng-click="tapfuncion()">
+    ADMINISTACION
+    </a>
+  </div>
+
+  <h4 style="margin-top: 11%;" class="titulo-pantalla" style="margin-bottom:10px;">Bienvenido a Bucacompras</h4>
+
+    <div ng-show="galeria === false"  >
+      <form ng-submit="entrar()">
+        <div class="list">
+          <label class="item item-input" style="border-color: rgba(0, 0, 0, 0) !important; background-color: rgba(0, 0, 0, 0) !important; margin-left: 5% !important; margin-right: 10px !important; margin-top: 10px !important;">
+            <input type="text" class="borderinput" ng-model="loginData.username" placeholder="Usuario o Cedula">
+          </label>
+          <label class="item item-input" style="border-color: rgba(0, 0, 0, 0) !important; background-color: rgba(0, 0, 0, 0) !important; margin-left: 5% !important; margin-right: 10px !important; margin-top: 10px !important;">
+            <input type="password" class="borderinput" ng-model="loginData.password" placeholder="Password">
+          </label>
+           <h5 ng-click="recordarcontrasena()" style="margin-top:15px; margin-bottom:15px; text-align: center;">Olvidaste tu contraseña?</h5>
+          <div class="item item-text-wrap" style="text-align: center;border-color: rgba(0, 0, 0, 0) !important; background-color: rgba(0, 0, 0, 0) !important;">
+         <button class="button  button-home button-actualizar"  type="submit" style=" width: 50%; "> Log in </button>
+          </div>
+        </div>
+        </form>
+      <form ng-show="mostraconfig == 1" ng-submit="entrarconfig()">
+        <div class="list">
+          <label class="item item-input" style="border-color: rgba(0, 0, 0, 0) !important; background-color: rgba(0, 0, 0, 0) !important; margin-left: 5% !important; margin-right: 10px !important; margin-top: 10px !important;">
+            <input type="text" class="borderinput" ng-model="loginData.clave" placeholder="Clave de Administrador">
+          </label>
+          <label class="item item-input" style="border-color: rgba(0, 0, 0, 0) !important; background-color: rgba(0, 0, 0, 0) !important; margin-left: 5% !important; margin-right: 10px !important; margin-top: 10px !important;">
+            <input type="text" class="borderinput" ng-model="loginData.api" placeholder="Direccion api">
+          </label>
+          <label class="item item-input" style="border-color: rgba(0, 0, 0, 0) !important; background-color: rgba(0, 0, 0, 0) !important; margin-left: 5% !important; margin-right: 10px !important; margin-top: 10px !important;">
+            <input type="text" class="borderinput" ng-model="loginData.imagenes" placeholder="Direccion imagenes">
+          </label>
+          <div class="item item-text-wrap" style="text-align: center;border-color: rgba(0, 0, 0, 0) !important; padding-top: 0px; background-color: rgba(0, 0, 0, 0) !important;">
+         <button class="button  button-home button-actualizar"  type="submit" style=" width: 50%; "> aceptar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div ng-show="galeria === true" >
+      <form ng-submit="buscaproducto()">
+       <label class="item item-input" style="border-color: rgba(0, 0, 0, 0) !important; background-color: rgba(0, 0, 0, 0) !important; margin-left: 5% !important; margin-right: 10px !important; margin-top: 10px !important;">
+            <input type="text" class="borderinput" ng-model="loginData.producto" placeholder="Buscar...">
+          </label>
+           <h5 style="margin-top:15px; margin-bottom:15px; text-align: center;">Escribe el nombre del producto que deseas buscar</h5>
+          <div class="item item-text-wrap" style="text-align: center;border-color: rgba(0, 0, 0, 0) !important; background-color: rgba(0, 0, 0, 0) !important;">
+         <button class="button  button-home button-actualizar"  type="submit" style=" width: 50%; "> Buscar </button>
+          </div>
+      </form>
+    </div>
+
+    <div style="text-align: center; position: relative; bottom: 0px; width: 100%">Bucacompras <a  ng-click="openlink()">terminos y condiciones<a>.  <a ng-click="mostrarconfig()">©</a></div>
+   </ion-content>
+</ion-view>

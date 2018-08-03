@@ -1,0 +1,53 @@
+  <ion-header-bar class="hederbackgrod">
+  </ion-header-bar>
+  <ion-content class="bg-1"> 
+      <div class="form-actuzal-group">
+        <div ng-show="rol === 'SUPERVISOR'" class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
+          <div class="tabs" style="top: 20px !important; position: relative !important;">
+            <a class="tab-item" ng-class="{active:tabstoppor==true}" ng-click="tapfuncionpor()"> 
+              POR CONFIRMAR
+            </a>
+            <a class="tab-item" ng-class="{active:tabstop==true}" ng-click="tapfuncion()">
+            CONFIRMADOS
+            </a>
+          </div>
+        </div>
+        <div ng-show="rol === 'ADMINISTRADOR'" class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
+          <div class="tabs" style="top: 20px !important; position: relative !important; height: 150px !important; margin-top: 25px; background-color: rgba(255, 255, 255, 0); !important;">
+            <a class="tab-item"  style="height: 150px !important; background-color: #fff; padding-top: 10%" href="#/app/obsequio"> 
+            OBSEQUIOS
+
+            </a>
+            <a class="tab-item"  style="height: 150px !important; background-color: #fff; padding-top: 10%" href="#/app/devolucion">
+            DEVOLUCIONES 
+            </a>
+            </div>
+            <div class="tabs" style="top: 20px !important; position: relative !important; height: 150px !important; margin-top: 30px;  background-color: rgba(255, 255, 255, 0);">
+           <a class="tab-item" style="height: 150px !important; background-color: #fff; padding-top: 10%"  href="#/app/situaciones">
+            SITUACIONES
+            </a>
+            <a class="tab-item" style="height: 150px !important; background-color: #fff; padding-top: 10%"  href="#/app/seguimiento">
+            SEGUIMIENTO
+            </a>
+          </div>
+        </div>
+
+
+      </div>
+    <h4 ng-show="rol === 'SUPERVISOR'" class="titulo-pantalla" style="margin-top:40px; margin-bottom:20px;">{{mensaje}}</h4>
+    <h4 ng-show="rol === 'LOCAL'" class="titulo-pantalla" style="margin-top:10px; margin-bottom:20px;">Lista de pedidos por entregar.</h4>
+  
+   	<div ng-repeat="pedido in listapedidos | orderBy: '-pedidoid'" ng-hide="pedido.pedidoestado == 'S1'" ng-click="detalle(pedido.pedidoid)">
+
+		 <div class="list card" style="margin-bottom: 0px;" ng-class="{'card-red': pedido.atiende == 'APP' && pedido.horario_extendido == 1 && pedido.notificacion == 1,'card-yellow': pedido.atiende == 'APP' && pedido.horario_extendido == 0 && pedido.notificacion == 1 }" >
+
+		  <div class="item item-avatar">
+		    <img src="{{url}}{{pedido.foto}}">
+		    <h2>{{pedido.nombre | limitTo:40 | uppercase }}</h2>
+		    <p>Pedido numero: {{pedido.pedidoid| limitTo:20 | uppercase }}</p>
+		  </div>
+
+    		</div>
+    </div>
+
+  </ion-content>

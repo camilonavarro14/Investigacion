@@ -1,0 +1,158 @@
+	<ion-header-bar class="hederbackgrod">
+	</ion-header-bar>
+    <ion-content view-title="DETALLE" cache-view="false">  
+	    <div class="form-login-group" style="margin-top: 40px;">
+			<p class="titulo-pantalla">Detalle del pedido</p>
+		</div>
+
+		 <div class="list card">
+
+		  <div class="item item-avatar">
+		    <img src="{{foto}}">
+		    <h2>{{ nombre | limitTo:40 | uppercase }}</h2>
+		    <p>Pedido numero: {{pedidoid }}</p>
+		  </div>
+
+		   <div class="item item-image" style="margin-bottom:10px;">
+		    <img src="{{foto}}">
+		  </div>
+
+			<div style="padding-right: 10px; padding-left: 10px;">
+
+			<div ng-show="estado == 'B1' || estado == 'B5' || estado == 'B0'" class="item item-divider" style="text-align: center;background-color: #4ac4fa; margin-top:2px;" ng-click="mostrarinfoempre()" ng-class="{'ion-minus-round': mostrarinfoempredata == true, 'ion-plus-round': mostrarinfoempredata == false }"> Datos Empresa </div>
+				<div ng-show=" mostrarinfoempredata == true" style="background-color: #eaeaea; padding: 8px;">
+				  <p ng-show="estado == 'B1' || estado == 'B5' || estado == 'B0'"><b>Empresa: </b>{{ local.nombre }}</p>
+				  <p ng-show="estado == 'B1' || estado == 'B5' || estado == 'B0'"><b>Direccion recogida: </b>{{ local.direccion }}</p>
+				  <p ng-show="estado == 'B1' || estado == 'B5' || estado == 'B0'"><b>Persona encargada: </b>{{ local.encargado }}</p>
+				  <p ng-show="estado == 'B1' || estado == 'B5' || estado == 'B0'"><b>telefono: </b>{{ local.telefono_principal }}</p>
+				</div>
+			<div class="item item-divider" style="text-align: center; background-color: #4ac4fa;  margin-top:2px;" ng-click="mostrarinfocliente()"  ng-class="{'ion-minus-round item-left': mostrarinfoclientedata == true, 'ion-plus-round': mostrarinfoclientedata == false }"> Datos Clientes </div>
+			  <div ng-show="mostrarinfoclientedata == true" style="background-color: #eaeaea; padding: 8px;">	
+				  <p ><b>Direccion entrega: </b>{{ direccion }}</p>
+				  <p><b>Hora de entrega: </b>{{ hora_entrega }}</p>
+				  <p ><b>Barrio: </b>{{ barrio }}</p>
+				  <p ><b>Telefono: </b>{{ telefono }}</p>		  
+				  <p ><b>Celular: </b>{{ celular }}</p>
+			  </div>
+			  <div style="padding: 8px; margin-top:2px;">
+				  <p><b>Estado actual del Pedido :</b>{{ estadotitu }}</p>
+
+				  <p ng-show="usado == 0 "><b>Estado del producto : </b>Nuevo</p>
+				  <p ng-show="usado == 1 "><b>Estado del producto : </b>Usado</p>
+
+				  <p ng-hide="respuesta1 === null "><b>{{ pregunta1 }} : </b>{{ respuesta1 }}</p>
+				  <p ng-hide="respuesta2 === null "><b>{{ pregunta2 }} : </b>{{ respuesta2 }}</p>
+				  <p ng-hide="respuesta3 === null "><b>{{ pregunta3 }} : </b>{{ respuesta3 }}</p>
+				  <p ng-hide="respuesta4 === null "><b>{{ pregunta4 }} : </b>{{ respuesta4 }}</p>
+
+
+				  <p ng-show="envoltura_regalo === 1 "><b>Envoltura regalo : </b> Si </p>
+				  <p ng-show="envoltura_regalo === 0 "><b>Envoltura regalo : </b> No </p>
+
+				  <p><b>Cantidad :</b>{{ cantidad }}</p>
+				  <p><b>Fecha de envió :</b>{{ fecha |  limitTo: 10  }}</p>
+				  <p><b>Total :</b>{{ total }}</p>
+				  </div>
+			</div>
+		</div>
+
+		<div style="text-align: center;">
+
+			<div class="card" ng-show="mostrartarjeta == '3'  && muestraprecalendario == true">
+			  <div class="item item-divider" style="text-align: center;">
+			     Fecha seleccionada
+			  </div>
+			  <div class="item item-text-wrap" style="text-align: center; white-space:normal;">
+			   Nueva fecha: {{ nuevafechas |  limitTo: 10 }}</br>
+			  <select name="repeatSelect" id="repeatSelect" ng-model="cambiofecha.nuevahora">
+			   <option value="">Selecciona una hora para la entrega</option>
+			      <option value="8-10">8 a 10</option>
+			      <option value="10-12">10 a 12</option>
+			      <option  ng-show="horaomitir == 1" value="12-14">12 a 2</option>
+			      <option value="14-16">2 a 4</option>
+			      <option value="16-18">4 a 6</option>
+			      <option ng-show="horaomitir == 1" value="18-20">6 a 8</option>
+			   </select>
+			<textarea class="borderinput" rows="15" style="width:100%; margin-top:10px;" ng-model="cambiofecha.descripcion"></textarea>
+			<button class="button  button-home button-actualizar"  ng-click="responde2Si()" style=" width: 50%; margin-top:10px; ">Modificar</button>
+				<button class="button  button-home button-actualizar"  ng-click="respondecaledario()" style=" width: 50%; margin-top:10px; ">Enviar</button>
+				 </div>
+			</div>
+                    
+			<div class="card" ng-show="mostrartarjeta == '3'  && muestrapreguntatres == true ">
+				<div class="item item-divider" style="text-align: center; white-space:normal;">
+				Desea desactivar el producto
+				</div>
+				<div class="item item-text-wrap">
+					<button class="button  button-home button-actualizar"  ng-click="responde3Si()" style=" width: 50%; "> SI </button>
+					<button class="button  button-home button-actualizar"  ng-click="responde3No()" style=" width: 50%; "> NO</button>
+				</div>
+			</div>
+
+			<div class="card" ng-show="mostrartarjeta == '2'  && muestrapreguntados == true">
+			  <div class="item item-divider" style="text-align: center; white-space:normal;">
+			    {{ pregunta_dos}}
+			  </div>
+			  <div class="item item-text-wrap">
+				 <button class="button  button-home button-actualizar"  ng-click="responde2Si(); mostrartarjetafun(3)" style=" width: 50%; "> SI </button>
+				 <button class="button  button-home button-actualizar"  ng-click="responde2No()" style=" width: 50%; "> NO</button>
+			  </div>
+			</div>
+
+
+			 <div class="card" ng-show="mostrartarjeta == '1'  && rol == 'LOCAL' && estado == 'B3' && atiende == 'APP' && notificacion == '1'">
+				  <div class="item item-divider" style="text-align: center; white-space:normal;">
+				    {{ pregunta_uno }}
+				  </div>
+				  <div class="item item-text-wrap">
+					 <button class="button  button-home button-actualizar"  ng-click="respondeSi()" style=" width: 50%; "> SI </button>
+					 <button class="button  button-home button-actualizar"  ng-click="respondeNo(); mostrartarjetafun(2)" style=" width: 50%; "> NO</button>
+				  </div>
+			</div>
+
+			<div class="card" ng-show="mostrartarjeta == '1'  && rol == 'LOCAL' && estado == 'B2' && atiende == 'APP' && notificacion == '1'">
+			  <div class="item item-divider" style="text-align: center;white-space:normal;">
+			    {{ pregunta_uno }}
+			  </div>
+			  <div class="item item-text-wrap">
+				 <button class="button  button-home button-actualizar"  ng-click="respondeSi();" style=" width: 50%; "> SI </button>
+				 <button class="button  button-home button-actualizar"  ng-click="respondeNo(); mostrartarjetafun(2)" style=" width: 50%; "> NO</button>
+			  </div>
+			</div>
+
+			<div class="card" ng-show="rol == 'SUPERVISOR' && estado == 'B0' && atiende == 'APP' && notificacion == '1' && muestraselect == true">
+				<div class="item item-divider" style="text-align: center; white-space:normal;">
+				  <select name="repeatSelect" id="repeatSelect" ng-model="data.datosituacion">
+				   <option ng-repeat="option in DatosSituacion" value="{{option.id}}">{{option.nombre}}</option>
+				   </select>
+				</div>
+
+				<div class="item item-text-wrap">
+					<button class="button  button-home button-actualizar"  ng-click="respondeNotransmas()" style=" width: 50%; "> ENVIAR </button>
+				</div>
+			</div>
+
+			<div class="card" ng-show="rol == 'SUPERVISOR' && estado == 'B1' && atiende == 'APP' && notificacion == '1'">
+			  <div class="item item-divider" style="text-align: center; white-space:normal;">
+			    {{ pregunta_uno }}
+			  </div>
+			  <div class="item item-text-wrap">
+			 	<button class="button  button-home button-actualizar"  ng-click="respondeSitrans()" style=" width: 50%; "> SI </button>
+			  </div>
+			</div>
+                        
+			<div class="card" ng-show="rol == 'SUPERVISOR' && estado == 'B0' && atiende == 'APP' && notificacion == '1' && muestraselect == false">
+				<div class="item item-divider" style="text-align: center; white-space:normal;">
+				{{ pregunta_uno }}
+				</div>
+				<div class="item item-text-wrap">
+				<button class="button  button-home button-actualizar"  ng-click="respondeSitrans()" style=" width: 50%; "> SI </button>
+				<button class="button  button-home button-actualizar"  ng-click="respondeNotrans()" style=" width: 50%; "> NO </button>
+				</div>
+			</div>
+		</div>
+			<div>
+			<button class="button  button-home button-actualizar"  ng-click="atras()" style="margin-right: 38%; margin-left: 38%; width: 24%; "> Home </button>
+			</div>
+	   
+    </ion-content>

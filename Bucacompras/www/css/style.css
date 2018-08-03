@@ -1,0 +1,184 @@
+
+
+
+/* Empty. Add your own CSS if you like */
+.content-splash{
+	background-image: url('../img/app.png');
+	background-size: cover;
+	background-position: center;
+}
+
+/* MENU */
+
+.item {
+    cursor: pointer;
+    z-index: 2;
+    text-decoration: none;
+    color: #777;
+}
+
+
+.item-complex .item-content,
+.item-radio .item-content {
+   position: relative !important;
+   z-index: 2 !important;
+   padding: 0px 0px 0px 0px !important; 
+   border: none !important; 
+   background-color: transparent !important;
+  }
+
+  
+
+.title.title-center.header-item{
+      color: #fff !important;
+}
+
+
+.bar-stable.bar.bar-header {
+  background-color: #4ac4fa;
+}
+button.button.button-icon.button-clear.ion-navicon{
+  color: #fff;
+}
+.bar.bar-stable .title{
+background-image: url(../img/Bucacompraslogo.png);
+
+    background-size: 175px 35px;
+    background-repeat: no-repeat;
+    background-position: 5% 50%;
+}
+
+.hederbackgrod{
+  height: 55px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px; 
+  background-image: url(../img/bodertop.png)!important;
+   background-size: 100% 100%;
+}
+
+
+/* HOME */
+
+.bg-1{
+  background-image: url(../img/bg-1.png);
+	background-color: rgba(255,255,255,0.5); 
+	background-size: cover;
+	background-position: center;
+  padding-right: 10px;
+}
+
+
+.bg-2{
+  background-image: url(../img/bg-2.png);
+  background-color: rgba(255,255,255,0.5); 
+  background-size: cover;
+  background-position: center;
+  padding-right: 10px;
+}
+
+.titulo-pantalla {
+    text-align: center;
+    color: #040404;
+    font-weight: 800;
+    margin: 15px 0;
+    font-size: 1.2em;
+}
+
+.form-login-group{
+    padding-right: auto;
+    padding-left: 10px;
+    color: #000000;
+}
+
+.borderinput{
+  border-left: solid 2px #4ac4fa !important;
+  border-right: solid 2px #4ac4fa !important;
+  border-bottom: solid 2px #4ac4fa !important;
+  border-radius: 3px !important;
+  text-align: center;
+}
+
+
+
+
+.button-home,.button-home:hover {
+   background-color: #4ac4fa;
+    color: #fff;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 15px;
+    min-height: auto;
+    padding: 7.5px;
+    line-height: 20px;
+    max-width: 120px;
+}
+
+
+.button-home:active {
+    background-color: #4ac4fa;
+    color: #ffffff !important;
+    padding: 7.5px 30px !important;
+
+}
+
+
+.tabs-striped.tabs-background-positive .tabs {
+    background-color: #fff;
+    background-image: none;
+   border-color: #fff;
+}
+
+/**/
+.card-red {
+   background-color: #F6B1B1;
+}
+
+.card-yellow {
+     background-color: #F1E778;
+}
+
+
+.card-red {
+    border: 2px solid #F95656;
+}
+
+.card-yellow {
+    border: 2px solid #FCF35B;
+}
+
+
+
+/* HOME */
+
+
+/* PERFIL */
+
+
+.actualizar-input {
+    max-width: none;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.button-buttomperfil,.button-buttomperfil:hover {
+     max-width: 150px;
+}
+
+.fondo-input-empresa{
+    background-image: url(../img/empresa.png);
+}
+
+.fondo-input-ocupacion {
+    background-image: url(../img/ocupacion.png);
+}
+
+.fondo-input-contra {
+    background-image: url(../img/contra.png);
+}
+
+/* PERFIL */
+
+/*ACORDEON*
+

@@ -1,0 +1,56 @@
+	<ion-header-bar class="hederbackgrod">
+	</ion-header-bar>
+    <ion-content view-title="DETALLE" cache-view="false">  
+	    <div class="form-login-group" style="margin-top: 40px;">
+			<p class="titulo-pantalla">Detalle seguimiento</p>
+		</div>
+
+		 <div class="list card">
+
+		  <div class="item item-avatar">
+		    <img src="{{foto}}">
+		    <p>Producto: {{producto }}</p>
+		  </div>
+
+		   <div class="item item-image" style="margin-bottom:10px;">
+		    <img src="{{foto}}">
+		  </div>
+
+			<div style="padding-right: 10px; padding-left: 10px;">
+
+			<div class="item item-divider" style="text-align: center; background-color: #4ac4fa;  margin-top:2px;" ng-click="mostrarinfocliente()"  ng-class="{'ion-minus-round item-left': mostrarinfoclientedata == true, 'ion-plus-round': mostrarinfoclientedata == false }"> Datos Clientes </div>
+			  <div style="background-color: #eaeaea; padding: 8px;">
+			  	  <p ><b>Usuario : </b>{{ usuario_nombre }} {{ usuario_apellido }}</p>	
+				  <p ><b>Area metropolitana: </b>{{ area_metropolitana }} ({{departamento }})</p>
+				  <p ><b>Ciudad: </b>{{ ciudad }}</p>
+				  <p ><b>Direccion entrega: </b>{{ direccion }}</p>
+				  <p ><b>Barrio: </b>{{ barrio }}</p>
+				  <p ><b>Telefono: </b>{{ telefono }}</p>		  
+				  <p ><b>Celular 1: </b>{{ celular1 }}</p>
+				  <p ><b>Celular 2: </b>{{ celular2 }}</p>
+				  <p><b>Total :</b>{{ total }}</p>
+			  </div>
+
+			  	<div  class="item item-divider" style="text-align: center;background-color: #4ac4fa; margin-top:2px;" ng-click="mostrarinfoempre()" ng-class="{'ion-minus-round': mostrarinfoempredata == true, 'ion-plus-round': mostrarinfoempredata == false }"> Datos Empresa </div>
+				<div  style="background-color: #eaeaea; padding: 8px;">
+				  <p ><b>Empresa: </b>{{ nombre }}</p>
+				  <p ><b>Persona encargada: </b>{{ encargado }}</p>
+				  <p ><b>telefono: </b>{{ telefono_principal }}</p>
+				</div>
+
+
+				<div  class="item item-divider" style="text-align: center;background-color: #4ac4fa; margin-top:2px;" ng-click="mostrarinfoempre()" ng-class="{'ion-minus-round': mostrarinfoempredata == true, 'ion-plus-round': mostrarinfoempredata == false }"> Datos Trasportadora </div>
+				<div  style="background-color: #eaeaea; padding: 8px;">
+				<p ><b>Empresa: </b>{{ nombreTrasporte }}</p>
+				<p ><b>Celuar: </b>{{ movilTrasporte }}</p>
+				<p ><b>telefono: </b>{{ telefonoTrasporte  }}</p>
+				</div>
+
+			</div>
+		</div>
+
+		<div>
+		<button class="button  button-home button-actualizar"  ng-click="atras()" style="margin-right: 38%; margin-left: 38%; width: 24%; "> Home </button>
+		</div>
+	   
+    </ion-content>
